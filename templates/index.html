@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if session.user_id %}
+    <h1>Now you're signed in, {{session.username}}</h1>
+
+{% else %}
+    <h1>Currently signed out</h1>
+{% endif %}
+{% endblock %}

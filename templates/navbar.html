@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+    <a class="navbar-brand" href="{{url_for('index')}}">MyTVGuide</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>x
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {% if session.user_id %}
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    {{session.username}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">My Likes</a>
+                    <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+                </div>
+            </li>
+
+            {% else %}
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url_for('authenticate')}}">Login</a>
+                    <a class="dropdown-item" href="{{url_for('authenticate')}}">Register</a>
+                </div>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<div class="row justify-content-center bg-secondary">
+    <div class="col-10">
+        <form action="{{url_for('search')}}" class="form-inline">
+            <input type="search" class="form-control col-10" name="html_query" placeholder="Search for TV shows">
+            <button class="btn btn-outline-secondary my-2" type="submit">Search</button>
+        </form>
+    </div>
+</div>

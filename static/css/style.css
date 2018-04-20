@@ -1,0 +1,38 @@
+.quote {
+    box-shadow: 4px 4px 10px #aaa;
+    padding: 30px 30px 15px 30px;
+    border: 1px solid #eee;
+    margin-bottom: 50px;
+}
+
+.quote p {
+    font-size: 1.5em;
+    padding-left: 15px;
+    border-left: 5px solid #ddd;
+}
+
+.username {
+    font-size: 0.8em;
+    color: blue;
+}
+
+.createdat {
+    font-size: 0.8em;
+}
+
+.tab-pane {
+    padding: 20px;
+    border-left: 1px solid #eee;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.errormessage {
+    color: green;
+}
+
+.user p {
+    font-size: 2em;
+    padding-left: 0;
+}
+
+
