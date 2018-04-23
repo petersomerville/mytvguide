@@ -1,7 +1,7 @@
 import re, bcrypt
 from flask import Flask, session, request, redirect, render_template, flash, url_for
 from flask_wtf import CSRFProtect
-from db.data_layer import create_user, get_user_by_email, search_for_shows, get_shows_from_api, get_shows_from_db, like_show, unlike_show, get_likes, get_json, search_database
+from db.data_layer import get_json, search_database, create_show, get_shows_from_db, like_show, unlike_show, get_likes, create_user, get_user_by_email
 
 app = Flask(__name__)
 app.secret_key = 'blah'
@@ -20,8 +20,8 @@ def search():
 
 @app.route('/search_database/<query>')
 def search_db(query):
-    search_database(query)
-    return render_template('results.html')
+    shows_found = search_database(query)
+    return render_template('results.html', shows_found = shows_found)
 
 @app.route('/authenticate')
 def authenticate():

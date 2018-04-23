@@ -3,5 +3,15 @@
 {% block body %}
 
 <h1>These are results</h1>
+<div class="container">
+    <div class="row">
+        {% for result in shows_found %}
+            <div class="col-3">
+                <img src="{{result.show_image_url}}">
+                <p>{{ result.showname }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
